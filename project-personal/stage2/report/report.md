@@ -1,27 +1,31 @@
 ---
-## Front matter
-title: "Шаблон отчёта по лабораторной работе"
-subtitle: "Простейший вариант"
-author: "Дмитрий Сергеевич Кулябов"
+# Front matter
+title: "Отчёт по индивидуальному проекту. Этап 2."
+subtitle: "Предмет: научное программирование"
+author: "Александр Сергеевич Баклашов"
 
-## Generic otions
+# Generic otions
 lang: ru-RU
 toc-title: "Содержание"
 
-## Bibliography
+# Bibliography
 bibliography: bib/cite.bib
 csl: pandoc/csl/gost-r-7-0-5-2008-numeric.csl
 
-## Pdf output format
+# References settings
+linkReferences: true
+nameInLink: true
+
+# Pdf output format
 toc: true # Table of contents
-toc-depth: 2
+toc_depth: 2
 lof: true # List of figures
-lot: true # List of tables
+lot: false # List of tables
 fontsize: 12pt
 linestretch: 1.5
 papersize: a4
 documentclass: scrreprt
-## I18n polyglossia
+## I18n
 polyglossia-lang:
   name: russian
   options:
@@ -29,10 +33,7 @@ polyglossia-lang:
 	- babelshorthands=true
 polyglossia-otherlangs:
   name: english
-## I18n babel
-babel-lang: russian
-babel-otherlangs: english
-## Fonts
+### Fonts
 mainfont: PT Serif
 romanfont: PT Serif
 sansfont: PT Sans
@@ -51,69 +52,112 @@ biblatexoptions:
   - language=auto
   - autolang=other*
   - citestyle=gost-numeric
-## Pandoc-crossref LaTeX customization
-figureTitle: "Рис."
-tableTitle: "Таблица"
-listingTitle: "Листинг"
-lofTitle: "Список иллюстраций"
-lotTitle: "Список таблиц"
-lolTitle: "Листинги"
 ## Misc options
 indent: true
 header-includes:
-  - \usepackage{indentfirst}
+  - \linepenalty=10 # the penalty added to the badness of each line within a paragraph (no associated penalty node) Increasing the value makes tex try to have fewer lines in the paragraph.
+  - \interlinepenalty=0 # value of the penalty (node) added after each line of a paragraph.
+  - \hyphenpenalty=50 # the penalty for line breaking at an automatically inserted hyphen
+  - \exhyphenpenalty=50 # the penalty for line breaking at an explicit hyphen
+  - \binoppenalty=700 # the penalty for breaking a line at a binary operator
+  - \relpenalty=500 # the penalty for breaking a line at a relation
+  - \clubpenalty=150 # extra penalty for breaking after first line of a paragraph
+  - \widowpenalty=150 # extra penalty for breaking before last line of a paragraph
+  - \displaywidowpenalty=50 # extra penalty for breaking before last line before a display math
+  - \brokenpenalty=100 # extra penalty for page breaking after a hyphenated line
+  - \predisplaypenalty=10000 # penalty for breaking before a display
+  - \postdisplaypenalty=0 # penalty for breaking after a display
+  - \floatingpenalty = 20000 # penalty for splitting an insertion (can only be split footnote in standard LaTeX)
+  - \raggedbottom # or \flushbottom
   - \usepackage{float} # keep figures where there are in the text
   - \floatplacement{figure}{H} # keep figures where there are in the text
 ---
 
 # Цель работы
 
-Здесь приводится формулировка цели лабораторной работы. Формулировки
-цели для каждой лабораторной работы приведены в методических
-указаниях.
+- Список добавляемых данных.
 
-Цель данного шаблона --- максимально упростить подготовку отчётов по
-лабораторным работам.  Модифицируя данный шаблон, студенты смогут без
-труда подготовить отчёт по лабораторным работам, а также познакомиться
-с основными возможностями разметки Markdown.
+  - Разместить фотографию владельца сайта.
 
-# Задание
+  - Разместить краткое описание владельца сайта (Biography).
 
-Здесь приводится описание задания в соответствии с рекомендациями
-методического пособия и выданным вариантом.
+  - Добавить информацию об интересах (Interests).
+
+  - Добавить информацию от образовании (Education).
+
+- Сделать пост по прошедшей неделе.
+
+- Добавить пост на тему Управление версиями. Git. [1]
 
 # Теоретическое введение
 
-Здесь описываются теоретические аспекты, связанные с выполнением работы.
+Hugo is a static site generator written in Go. Steve Francia originally created Hugo as an open source project in 2013. Since v0.14 in 2015, Hugo has continued development under the lead of Bjørn Erik Pedersen with other contributors. Hugo is licensed under the Apache License 2.0.
 
-Например, в табл. @tbl:std-dir приведено краткое описание стандартных каталогов Unix.
+Hugo is particularly noted for its speed, and Hugo's official website states it is "the world’s fastest framework for building websites". In July 2015, Netlify began providing Hugo hosting. Notable adopters are Smashing Magazine, which migrated from WordPress to a Jamstack solution with Hugo in 2017, and Cloudflare, which switched its Developer Docs from Gatsby to Hugo in 2022 [2]
 
-: Описание некоторых каталогов файловой системы GNU Linux {#tbl:std-dir}
+# Выполнение индивидуального проекта
 
-| Имя каталога | Описание каталога                                                                                                          |
-|--------------|----------------------------------------------------------------------------------------------------------------------------|
-| `/`          | Корневая директория, содержащая всю файловую                                                                               |
-| `/bin `      | Основные системные утилиты, необходимые как в однопользовательском режиме, так и при обычной работе всем пользователям     |
-| `/etc`       | Общесистемные конфигурационные файлы и файлы конфигурации установленных программ                                           |
-| `/home`      | Содержит домашние директории пользователей, которые, в свою очередь, содержат персональные настройки и данные пользователя |
-| `/media`     | Точки монтирования для сменных носителей                                                                                   |
-| `/root`      | Домашняя директория пользователя  `root`                                                                                   |
-| `/tmp`       | Временные файлы                                                                                                            |
-| `/usr`       | Вторичная иерархия для данных пользователя                                                                                 |
+## Размещение фотографии владельца сайта
 
-Более подробно об Unix см. в [@gnu-doc:bash;@newham:2005:bash;@zarrelli:2017:bash;@robbins:2013:bash;@tannenbaum:arch-pc:ru;@tannenbaum:modern-os:ru].
+1. Разместим фотографию владельца сайта (рис. [-@fig:001])
 
-# Выполнение лабораторной работы
+![Фото](image/1.png){ #fig:001 width=80% }
 
-Описываются проведённые действия, в качестве иллюстрации даётся ссылка на иллюстрацию (рис. @fig:001).
+## Размещение краткого описания владельца сайта (Biography).
 
-![Название рисунка](image/placeimg_800_600_tech.jpg){#fig:001 width=70%}
+2. Разместим краткое описание владельца сайта (Biography)  (рис. [-@fig:002])
 
-# Выводы
+![Описание](image/2.png){ #fig:002 width=90% }
 
-Здесь кратко описываются итоги проделанной работы.
+## Добавление информации об интересах (Interests)
 
-# Список литературы{.unnumbered}
+3. Добавим информацию об интересах (Interests) (рис. [-@fig:003])
 
-::: {#refs}
-:::
+![Интересы](image/3.png){ #fig:003 width=90% }
+
+## Добавление информации от образовании (Education).
+
+4. Добавим информацию об образовании (рис. [-@fig:004])
+
+![Образование](image/4.png){ #fig:004 width=70% }
+
+## Создание поста по прошедшей неделе.
+
+5. Сделаем пост по прошедшей неделе. (рис. [-@fig:005])
+
+![Пост на сайте](image/5.png){ #fig:005 width=90% }
+
+6. Пост при открытии (рис. [-@fig:006])
+
+![Пост при открытии](image/6.png){ #fig:006 width=90% }
+
+## Добавление поста на тему Управление версиями. Git.
+
+7. Добавим пост на тему Управление версиями. Git. (рис. [-@fig:007])
+
+![Пост на сайте](image/7.png){ #fig:007 width=90% }
+
+8. Пост при открытии (рис. [-@fig:008])
+
+![Пост при открытии](image/8.png){ #fig:008 width=90% }
+
+# Вывод
+
+В ходе данной лабораторной работы я:
+
+  - Разместил фотографию владельца сайта.
+
+  - Разместил краткое описание владельца сайта (Biography).
+
+  - Добавил информацию об интересах (Interests).
+
+  - Добавил информацию от образовании (Education).
+
+- Сделал пост по прошедшей неделе.
+
+- Добавил пост на тему Управление версиями. Git.
+
+# Библиография
+
+1. Этапы реализации проекта. [Электронный ресурс]. М. URL: [Этапы реализации проекта](https://esystem.rudn.ru/mod/page/view.php?id=1030694) (Дата обращения: 03.10.2023).
+2. Hugo (software) [Электронный ресурс]. М. URL: [Hugo (software)](https://en.wikipedia.org/wiki/Hugo_(software)) (Дата обращения: 03.10.2023).
