@@ -83,7 +83,7 @@ header-includes:
 
   - Добавить информацию об интересах (Interests).
 
-  - Добавить информацию от образовании (Education).
+  - Добавить информацию об образовании (Education).
 
 - Сделать пост по прошедшей неделе.
 
@@ -115,7 +115,7 @@ Hugo is particularly noted for its speed, and Hugo's official website states it 
 
 ![Интересы](image/3.png){ #fig:003 width=90% }
 
-## Добавление информации от образовании (Education).
+## Добавление информации об образовании (Education).
 
 4. Добавим информацию об образовании (рис. [-@fig:004])
 
@@ -151,7 +151,7 @@ Hugo is particularly noted for its speed, and Hugo's official website states it 
 
   - Добавил информацию об интересах (Interests).
 
-  - Добавил информацию от образовании (Education).
+  - Добавил информацию об образовании (Education).
 
 - Сделал пост по прошедшей неделе.
 
